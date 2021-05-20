@@ -13,7 +13,11 @@ pipeline {
 
         stage('run test') {
             steps {
-                sh 'yarn test'
+                echo 'executing test'
+                /* groovylint-disable-next-line DuplicateStringLiteral */
+                nodejs('SavingFinanceNode') {
+                    sh 'yarn test'
+                }
             }
         }
     }
