@@ -2,15 +2,14 @@
 pipeline {
     agent none
     stages {
-        stage('backendNode') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3.8.1-adoptopenjdk-11' }
+            }
             steps {
-                echo 'executing node image'
-                agent {
-                    docker { image 'node:14-alpine' }
-                }
+                sh 'docker image initialized'
             }
         }
-
         stage('build') {
             steps {
                 echo 'executing yarn'
@@ -21,3 +20,4 @@ pipeline {
         }
     }
 }
+
