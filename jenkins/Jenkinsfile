@@ -1,22 +1,22 @@
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-    agent any
+    agent none
     stages {
+        stage('backendNode') {
+            steps {
+                echo 'executing node image'
+                agent {
+                    /* groovylint-disable-next-line NestedBlockDepth */
+                    docker { image 'node:14-alpine' }
+                }
+            }
+        }
+
         stage('build') {
             steps {
                 echo 'executing yarn'
                 nodejs('SavingFinanceNode') {
                     sh 'yarn install'
-                }
-            }
-        }
-
-        stage('run test') {
-            steps {
-                echo 'executing test'
-                /* groovylint-disable-next-line DuplicateStringLiteral */
-                nodejs('SavingFinanceNode') {
-                    sh 'yarn test'
                 }
             }
         }
