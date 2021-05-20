@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/usr/src/savingfinance_backend_dev
+      - /usr/src/savingfinance_backend_dev/node_modules
+    ports:
+      - 7000:7000
+    links:
+      - db
+
+  db:
+    container_name: savingfinanceDB_dev
+    image: mvertes/alpine-mongo
+    ports:
+      - 27017:27017
+    logging:
+      driver: none
