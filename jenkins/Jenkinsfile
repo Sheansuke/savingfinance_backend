@@ -4,18 +4,10 @@ pipeline {
     stages {
         stage('Back-end') {
             agent {
-                docker { image 'node:14' }
+                docker { image 'mvertes/alpine-mongo' }
             }
             steps {
-                sh 'docker image initialized'
-            }
-        }
-        stage('build') {
-            steps {
-                echo 'executing yarn'
-                nodejs('SavingFinanceNode') {
-                    sh 'yarn install'
-                }
+                sh 'mongo image initialized'
             }
         }
     }
