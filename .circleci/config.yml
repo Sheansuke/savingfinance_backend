@@ -16,18 +16,26 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-      - image: 'circleci/node:latest'
-      - image: 'circleci/mongo:latest'
-      
+      - image: 'node:14-alpine'
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
+      # Checkout the code as the first step.
       - checkout
-      - setup_remote_docker
+      # Next, the node orb's install-packages step will install the dependencies from a package.json.
+      # The orb install-packages step will also automatically cache them for faster future runs.
+      # If you are using yarn instead npm, remove the line above and uncomment the two lines below.
+      - node/install-packages:
+          pkg-manager: yarn 
       - run:
-          name: MongoDB Install
+          name: Install Dependencies
+          command: yarn install
+      - run:
+          name: Install MongoDB
           command: sudo apt-get install -y mongodb
-
+      - run:
+          name: Run Test
+          command: yarn test
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
