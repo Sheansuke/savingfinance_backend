@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Back-end') {
             agent {
-                docker { image 'mvertes/alpine-mongo' }
+                docker { image 'node:14-alpine' }
             }
             steps {
                 sh 'mongo image initialized'
