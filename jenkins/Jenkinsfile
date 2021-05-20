@@ -6,6 +6,9 @@ pipeline {
             agent {
                 docker { image 'node:14-alpine' }
             }
+            steps {
+                echo 'mongo image initialized'
+            }
         }
     }
 }
