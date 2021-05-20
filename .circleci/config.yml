@@ -22,7 +22,7 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - setup_remote_docker
+      # - setup_remote_docker
 
       - run:
           name: MongoDB Install
