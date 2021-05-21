@@ -17,7 +17,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
       - image: 'node:14-alpine'
-      - image: 'circleci/mongo:4.2.0'
+      - image: 'mvertes/alpine-mongo'
       
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
@@ -29,12 +29,12 @@ jobs:
           name: MongoDB Install
           command: sudo apt-get install -y mongodb
 
-      - node/install-packages:
-          pkg-manager: yarn 
+      # - node/install-packages:
+      #     pkg-manager: yarn 
 
-      - run:
-          name: Install Dependencies
-          command: yarn install
+      # - run:
+      #     name: Install Dependencies
+      #     command: yarn install
 
 
       # - run:
