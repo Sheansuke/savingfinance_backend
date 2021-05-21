@@ -25,6 +25,10 @@ jobs:
       - checkout
       - setup_remote_docker
 
+      - run:
+          name: MongoDB Install
+          command: sudo apt-get install -y mongodb
+
       - node/install-packages:
           pkg-manager: yarn 
 
@@ -32,9 +36,6 @@ jobs:
           name: Install Dependencies
           command: yarn install
 
-      - run:
-          name: MongoDB Install
-          command: sudo apt-get install -y mongodb
 
       # - run:
       #     name: Run tests
