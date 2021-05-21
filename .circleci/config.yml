@@ -26,9 +26,6 @@ jobs:
       - run:
           name: MongoDB Install
           command: sudo apt-get install -y mongodb
-      - run:
-          name: Run MongoDB
-          command: sudo systemctl start mongodb
 
 
       # - node/install-packages:
