@@ -1,0 +1,11 @@
+---
+application:
+  name: "savingfinance-backend"
+  project: "SavingFinance_backend"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-savingfinance-backend"
+  routes:
+  - application_name: "savingfinance-backend"
+    paths:
+    - "/*"
