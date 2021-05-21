@@ -17,7 +17,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
       - image: 'circleci/node:latest'
-      - image: 'circleci/mongo:latest'
+      # - image: 'circleci/mongo:latest'
       
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
@@ -36,10 +36,9 @@ jobs:
           command: yarn install
 
 
-      - run:
-          name: Run tests
-          command: yarn test
-
+      # - run:
+      #     name: Run tests
+      #     command: yarn test
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
