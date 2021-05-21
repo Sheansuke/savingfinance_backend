@@ -11,10 +11,6 @@ machine:
   services:
     - mongodb
 
-machine:
-  services:
-    - mongodb
-    
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
@@ -33,7 +29,6 @@ jobs:
       - run:
           name: MongoDB Install
           command: sudo apt-get install -y mongodb
-
 
       # - node/install-packages:
       #     pkg-manager: yarn
