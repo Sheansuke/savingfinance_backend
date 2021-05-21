@@ -22,7 +22,7 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      # - setup_remote_docker
+      - setup_remote_docker
 
       # - run:
       #     name: MongoDB Install
@@ -31,9 +31,9 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn 
 
-      # - run:
-      #     name: Install Dependencies
-      #     command: yarn install
+      - run:
+          name: Install Dependencies
+          command: yarn install
           
       # - run:
       #     name: Run tests
