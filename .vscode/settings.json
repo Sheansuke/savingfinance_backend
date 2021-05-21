@@ -1,3 +1,4 @@
 {
-    "jest.jestCommandLine": "yarn test"
+    "jest.jestCommandLine": "yarn test",
+    "circleci-vscode.apiToken": "bb37e14cbc6d8395711a9412b2e9119bc864da9a"
 }
