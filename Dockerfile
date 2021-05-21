@@ -20,7 +20,6 @@ WORKDIR /usr/src/savingfinance_backend_dev
 
 # copy from build image
 COPY --from=BUILD_IMAGE /usr/src/savingfinance_backend_dev/dist ./dist
-COPY --from=BUILD_IMAGE /usr/src/savingfinance_backend_dev/.env ./
 COPY --from=BUILD_IMAGE /usr/src/savingfinance_backend_dev/node_modules ./node_modules
 
 EXPOSE 7000
