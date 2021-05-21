@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node ./dist/app.js",
     "dev": "ts-node-dev --poll src/app.ts",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles --watchAll"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles --watchAll",
+    "testCircleCi": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "@typegoose/typegoose": "^7.6.0",

@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: Run tests
-          command: yarn test
+          command: yarn testCircleCi
 
 workflows:
   # Below is the definition of your workflow.
