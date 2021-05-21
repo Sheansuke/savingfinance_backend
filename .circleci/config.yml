@@ -16,7 +16,7 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-      - image: 'node:14-alpine'
+      - image: 'circleci/node:latest'
       - image: 'circleci/mongo:latest'
       
     # Then run your tests!
@@ -24,7 +24,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-
       - run:
           name: MongoDB Install
           command: sudo apt-get install -y mongodb
