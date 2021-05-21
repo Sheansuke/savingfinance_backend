@@ -9,11 +9,11 @@ services:
       - .:/usr/src/savingfinance_backend_dev
       - /usr/src/savingfinance_backend_dev/node_modules
     ports:
-      - 7000:7000
+      - 8000:7000
     links:
       - db
 
-  db:
+  localhost:
     container_name: savingfinanceDB_dev
     image: mvertes/alpine-mongo
     ports:

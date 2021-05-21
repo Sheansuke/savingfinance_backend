@@ -14,7 +14,7 @@ import { appRoutes } from "./routes/routes";
 // DOTENV
 config()
 
-const isDevelopment = process.env.NODE_ENV == "development" ? true : false
+const isDevelopment = process.env.NODE_ENV == "development" || "test" ? true : false
 
 const app = express();
 app.use(json());
@@ -59,7 +59,13 @@ appRoutes(app);
 
 // SERVER LISTEN
 console.log(chalk.green(`App initialized in mode: ${process.env.NODE_ENV}`));
-export const server = app.listen(process.env.PORT, () => {
-  console.log(chalk.green(`Server running on http://localhost:${process.env.PORT}/dashboard`));
+
+
+// DIFERENT PORT TO DEVELOPMENT,PRODUCTION AND TEST ENVIROMENT
+const SERVERPORT = process.env.NODE_ENV == "test" ? 8000 : process.env.PORT
+console.log("🚀 ~ file: app.ts ~ line 66 ~ SERVERPORT", SERVERPORT)
+
+export const server = app.listen(SERVERPORT, () => {
+  console.log(chalk.green(`Server running on http://localhost:${SERVERPORT}/dashboard`));
 });
 export default app

@@ -9,7 +9,7 @@ import {
 const router = express.Router();
 
 const path = "/user";
-router.get(`${path}/getAllUsers/`, isAuthJWT, getAllUsers);
+router.get(`${path}/getAllUsers/`, getAllUsers);
 
 // RECIVE A _ID
 router.get(`${path}/getUser/`, isAuthJWT, getUser);
