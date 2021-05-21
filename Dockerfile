@@ -11,7 +11,6 @@ COPY . .
 
 CMD ["yarn", "build"]
 
-
 FROM node:12-alpine
 
 ENV NODE_ENV=production
