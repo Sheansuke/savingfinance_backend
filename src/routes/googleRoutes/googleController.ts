@@ -8,7 +8,7 @@ export const googleAuth = () => { }
 export const googleCallback = (req: Request, res: Response) => {
   // Successful authentication, redirect home.
   // res.redirect(`${process.env.CORS_ORIGIN}`);
-  res.redirect("/dashboard");
+  res.redirect(`/dashboard`);
 }
 
 // LOGOUT XD
