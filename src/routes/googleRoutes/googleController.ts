@@ -2,12 +2,7 @@ import { Request, Response } from "express";
 import passport from "passport";
 
 // AUTH INITIALIZED
-export const googleAuth = (req: Request, res: Response) => {
-  passport.authenticate("google", {
-    scope: ["profile"],
-  })
-}
-
+export const googleAuth = () => { }
 
 // AUTH SECOND STEP
 export const googleCallback = (req: Request, res: Response) => {

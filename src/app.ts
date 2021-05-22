@@ -70,8 +70,6 @@ console.log(chalk.green(`App initialized in mode: ${process.env.NODE_ENV}`));
 // DIFERENT PORT WHEN RUN ON TEST MODE
 const SERVERPORT = process.env.NODE_ENV == "test" ? 8000 : process.env.PORT
 
-console.log("------------->>>>>>>>>>>>", process.env.GOOGLE_CALLBACK_URL)
-
 export const server = app.listen(SERVERPORT, () => {
   console.log(chalk.green(`Server running on http://localhost:${SERVERPORT}/dashboard`));
 });
