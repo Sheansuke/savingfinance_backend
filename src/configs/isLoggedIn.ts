@@ -6,7 +6,7 @@ export const isLoggedIn = (req: Request, res: Response, next: () => void) => {
     next();
   } else {
     res.status(401).json({
-      serverInfo: { code: 401, authorized: false, message: "Unauthorized" },
+      serverInfo: { code: 401, authorized: false, message: "Unauthorized", data: "No access" },
     });
   }
 };
