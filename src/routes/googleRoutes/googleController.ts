@@ -6,7 +6,6 @@ export const googleAuth = () => { }
 
 // AUTH SECOND STEP
 export const googleCallback = (req: Request, res: Response) => {
-  passport.authenticate("google", { failureRedirect: "/failed" })
   // Successful authentication, redirect home.
   res.redirect(`${process.env.CORS_ORIGIN}`);
 }

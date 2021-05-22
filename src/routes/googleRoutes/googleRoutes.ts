@@ -11,7 +11,7 @@ router.get(`${path}`, passport.authenticate("google", {
     scope: ["profile"],
 }));
 
-router.get(`${path}/callback/`, googleCallback);
+router.get(`${path}/callback/`, passport.authenticate("google", { failureRedirect: "/failed" }), googleCallback);
 
 router.get(`${path}/logout/`, googleLogout);
 
