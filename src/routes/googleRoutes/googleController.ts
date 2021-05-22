@@ -7,7 +7,8 @@ export const googleAuth = () => { }
 // AUTH SECOND STEP
 export const googleCallback = (req: Request, res: Response) => {
   // Successful authentication, redirect home.
-  res.redirect(`${process.env.CORS_ORIGIN}`);
+  // res.redirect(`${process.env.CORS_ORIGIN}`);
+  res.redirect("/dashboard");
 }
 
 // LOGOUT XD
