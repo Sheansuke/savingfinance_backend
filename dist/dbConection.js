@@ -15,9 +15,9 @@ var dbConection = function (URI) {
         useCreateIndex: true,
         useFindAndModify: false,
     })
-        .then(function () { return console.log("Database Connected"); })
+        .then(function () { return console.log(chalk_1.default.green("Database Connected")); })
         .catch(function (error) {
-        console.log(chalk_1.default.red(error));
+        console.log(chalk_1.default.yellow(error));
         console.log(chalk_1.default.red("Database can't connected"));
     });
 };

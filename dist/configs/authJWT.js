@@ -2,14 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createToken = exports.isAuthJWT = void 0;
 var jwt = require("jsonwebtoken");
-// check if Token exists on request Header and give access to resources
+// CHECK IF TOKEN EXIST IN HEADERS, IF EXIST ALLOW ACCESS TO USER
 var isAuthJWT = function (req, res, next) {
     var authHeader = req.headers.accesstoken;
     if (authHeader) {
         var token = authHeader;
         jwt.verify(token, "" + process.env.JWT_SECRET, { ignoreExpiration: false }, function (err, user) {
             if (err) {
-                return res.status(401).send({
+                return res.status(401).json({
                     serverInfo: {
                         code: 401,
                         authorized: false,
@@ -22,7 +22,7 @@ var isAuthJWT = function (req, res, next) {
         });
     }
     else {
-        res.sendStatus(401);
+        res.status(401);
     }
 };
 exports.isAuthJWT = isAuthJWT;
@@ -33,10 +33,16 @@ var createToken = function (req, res, next) {
         var accessToken = jwt.sign({ userId: req.user._id }, "" + process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
-        res.send(accessToken);
+        res.json(accessToken);
     }
     else {
-        res.send("Username or password incorrect");
+        res.json({
+            serverInfo: {
+                code: 401,
+                authorized: false,
+                message: "Oh, something is failed, please check your account",
+            },
+        });
     }
 };
 exports.createToken = createToken;

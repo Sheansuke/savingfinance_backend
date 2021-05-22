@@ -10,7 +10,7 @@ var userController_1 = require("./userController");
 var router = express_1.default.Router();
 exports.userRoutes = router;
 var path = "/user";
-router.get(path + "/getAllUsers/", authJWT_1.isAuthJWT, userController_1.getAllUsers);
+router.get(path + "/getAllUsers/", userController_1.getAllUsers);
 // RECIVE A _ID
 router.get(path + "/getUser/", authJWT_1.isAuthJWT, userController_1.getUser);
 // RECIVE A _ID and A BODY: ['name of categorie']

@@ -38,25 +38,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getToken = exports.mainPage = void 0;
 var authJWT_1 = require("../../configs/authJWT");
+// THIS IS MAIN PAGE WHEN USER IS LOGGED
 var mainPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         if (req.isAuthenticated()) {
             return [2 /*return*/, res.redirect("/dashboard")];
         }
-        res.status(401).send({
+        res.status(401).json({
             serverInfo: { code: 401, authorized: false, message: "Unauthorized" },
         });
         return [2 /*return*/];
     });
 }); };
 exports.mainPage = mainPage;
+// IF USER IS LOGGED THIS ENDPOINT RETURN A ACCESTOKEN
 var getToken = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         if (req.user) {
             return [2 /*return*/, authJWT_1.createToken(req, res)];
         }
         else {
-            return [2 /*return*/, res.status(401).send({
+            return [2 /*return*/, res.status(401).json({
                     serverInfo: { code: 401, authorized: false, message: "Unauthorized" },
                 })];
         }

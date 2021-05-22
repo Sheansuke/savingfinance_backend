@@ -52,6 +52,7 @@ passport_1.default.deserializeUser(function (id, done) {
         return done(null, doc);
     });
 });
+// GOOGLE AUTH
 passport_1.default.use(new GoogleStrategy({
     clientID: "" + process.env.GOOGLE_CLIENT_ID,
     clientSecret: "" + process.env.GOOGLE_CLIENT_SECRET,

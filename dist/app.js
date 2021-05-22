@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.server = void 0;
 var dotenv_1 = require("dotenv");
+var chalk_1 = __importDefault(require("chalk"));
 var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var passport_1 = __importDefault(require("passport"));
@@ -17,7 +18,10 @@ var dbConection_1 = require("./dbConection");
 var routes_1 = require("./routes/routes");
 // DOTENV
 dotenv_1.config();
-var isDevelopment = process.env.NODE_ENV == "development" ? true : false;
+var isDevelopment = true;
+if (process.env.NODE_ENV === "production") {
+    isDevelopment = false;
+}
 var app = express_1.default();
 app.use(body_parser_1.json());
 app.use(body_parser_1.urlencoded({ extended: true }));
@@ -49,8 +53,11 @@ dbConection_1.dbConection(isDevelopment ? "" + process.env.MONGO_DEV_URI : "" + 
 // FUNCTION WITH APP.USE() ROUTES
 routes_1.appRoutes(app);
 // SERVER LISTEN
-console.log("App initialized in mode: " + process.env.NODE_ENV);
-exports.server = app.listen(process.env.PORT, function () {
-    console.log("Server running on http://localhost:" + process.env.PORT + "/");
+console.log(chalk_1.default.green("App initialized in mode: " + process.env.NODE_ENV));
+// DIFERENT PORT TO DEVELOPMENT,PRODUCTION AND TEST ENVIROMENT
+var SERVERPORT = process.env.NODE_ENV == "test" ? 8000 : process.env.PORT;
+console.log("MONGO TEST URI ------------------->", isDevelopment ? "" + process.env.MONGO_DEV_URI : "" + process.env.MONGODB_URI);
+exports.server = app.listen(SERVERPORT, function () {
+    console.log(chalk_1.default.green("Server running on http://localhost:" + SERVERPORT + "/dashboard"));
 });
 exports.default = app;

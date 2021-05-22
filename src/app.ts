@@ -11,11 +11,17 @@ import morgan from "morgan";
 import { dbConection } from "./dbConection";
 import { appRoutes } from "./routes/routes";
 
+
 // DOTENV
 config()
 
-const isDevelopment = process.env.NODE_ENV == "development" || "test" ? true : false
+// CHECK NODE_ENV AN SET MODE
+let isDevelopment = true
+if (process.env.NODE_ENV === "production") {
+  isDevelopment = false
+}
 
+// BASIC CONFIG
 const app = express();
 app.use(json());
 app.use(urlencoded({ extended: true }));
@@ -61,10 +67,10 @@ appRoutes(app);
 console.log(chalk.green(`App initialized in mode: ${process.env.NODE_ENV}`));
 
 
-// DIFERENT PORT TO DEVELOPMENT,PRODUCTION AND TEST ENVIROMENT
+// DIFERENT PORT WHEN RUN ON TEST MODE
 const SERVERPORT = process.env.NODE_ENV == "test" ? 8000 : process.env.PORT
 
-console.log("MONGO TEST URI ------------------->", process.env.MONGODB_URI)
+
 export const server = app.listen(SERVERPORT, () => {
   console.log(chalk.green(`Server running on http://localhost:${SERVERPORT}/dashboard`));
 });

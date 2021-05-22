@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/app.js",
-    "dev": "ts-node-dev --poll src/app.ts",
+    "start": "cross-env NODE_ENV=production node ./dist/app.js",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --poll src/app.ts",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles --watchAll",
     "testCircleCi": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles"
   },

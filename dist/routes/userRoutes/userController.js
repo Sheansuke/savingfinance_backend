@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addNewCategorie = exports.getUser = exports.getAllUsers = void 0;
 var UserModel_1 = require("../../models/UserModel/UserModel");
+// YOU WON'T BELIEVE ME, THIS RETURNS ALL USERS :0
 var getAllUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var Users, error_1;
     return __generator(this, function (_a) {
@@ -65,7 +66,7 @@ var getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
                 return [4 /*yield*/, UserModel_1.UserModel.findById(_id)];
             case 1:
                 Users = _a.sent();
-                return [2 /*return*/, res.send(Users)];
+                return [2 /*return*/, res.json(Users)];
         }
     });
 }); };
@@ -83,7 +84,7 @@ var addNewCategorie = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, UserModel_1.UserModel.findById(_id)];
             case 2:
                 User = _a.sent();
-                return [2 /*return*/, res.send(User)];
+                return [2 /*return*/, res.json(User)];
         }
     });
 }); };
