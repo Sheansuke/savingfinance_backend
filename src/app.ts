@@ -64,7 +64,7 @@ console.log(chalk.green(`App initialized in mode: ${process.env.NODE_ENV}`));
 // DIFERENT PORT TO DEVELOPMENT,PRODUCTION AND TEST ENVIROMENT
 const SERVERPORT = process.env.NODE_ENV == "test" ? 8000 : process.env.PORT
 
-console.log("MONGO TEST URI ------------------->", process.env.MONGO_DEV_URI)
+console.log("MONGO TEST URI ------------------->", process.env.MONGODB_URI)
 export const server = app.listen(SERVERPORT, () => {
   console.log(chalk.green(`Server running on http://localhost:${SERVERPORT}/dashboard`));
 });
