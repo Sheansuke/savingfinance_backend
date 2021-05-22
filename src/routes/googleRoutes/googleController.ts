@@ -8,7 +8,7 @@ export const googleAuth = () => { }
 export const googleCallback = (req: Request, res: Response) => {
   // Successful authentication, redirect home.
   // res.redirect(`${process.env.CORS_ORIGIN}`);
-  res.redirect(`${process.env.CORS_ORIGIN}`);
+  res.redirect("https://5f68c330274e7021715ecda9--sheansuke-random-quotes.netlify.app/");
 }
 
 // LOGOUT XD
