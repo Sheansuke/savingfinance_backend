@@ -1,14 +1,16 @@
 import express from "express";
-import { isAuthJWT } from "../../configs/authJWT";
+import { isAuthJWT } from "../../../configs/authJWT";
 
 import {
   getAllUsers,
   getUser,
   addNewCategorie,
-} from "./userController";
+} from "../controllers/UserController";
 const router = express.Router();
 
+// MAIN PATH
 const path = "/user";
+
 router.get(`${path}/getAllUsers/`, isAuthJWT, getAllUsers);
 
 // RECIVE A _ID

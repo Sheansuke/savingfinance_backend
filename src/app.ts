@@ -9,7 +9,7 @@ import "./configs/passport";
 import { json, urlencoded } from "body-parser";
 import morgan from "morgan";
 import { dbConection } from "./dbConection";
-import { appRoutes } from "./routes/routes";
+import { appRoutesV1 } from "./api/v1/routes/routes";
 
 
 // DOTENV
@@ -61,7 +61,7 @@ dbConection(
 );
 
 // FUNCTION WITH APP.USE() ROUTES
-appRoutes(app);
+appRoutesV1(app);
 
 // SERVER LISTEN
 console.log(chalk.green(`App initialized in mode: ${process.env.NODE_ENV}`));

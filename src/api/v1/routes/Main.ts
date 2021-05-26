@@ -1,11 +1,12 @@
 import express from "express";
-import { isLoggedIn } from "../../configs/isLoggedIn";
-import { mainPage, getToken } from "./mainController";
-import { isAuthJWT } from "../../configs/authJWT";
+import { isLoggedIn } from "../../../configs/isLoggedIn";
+import { mainPage, getToken } from "../controllers/MainController";
+import { isAuthJWT } from "../../../configs/authJWT";
 
 const router = express.Router();
 
-const path = "/";
+// MAIN PATH
+const path = "/api/v1";
 
 router.get(`${path}`, isAuthJWT, mainPage);
 router.get(`${path}getToken`, isLoggedIn, getToken);

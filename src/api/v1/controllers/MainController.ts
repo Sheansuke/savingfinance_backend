@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createToken } from "../../configs/authJWT";
+import { createToken } from "../../../configs/authJWT";
 
 // THIS IS MAIN PAGE WHEN USER IS LOGGED
 export const mainPage = async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import { TypeCurrencyCodes } from "../../utils/currencyCodes";
+import { TypeCurrencyCodes } from "../../interfaces/types/currencyCodes";
 
 export interface ICategorie {
   name: string;
@@ -10,4 +10,4 @@ export interface ICategorie {
 
 type CategorieDoc = ICategorie & Document;
 
-export interface ICategorieSchema extends CategorieDoc {}
+export interface ICategorieSchema extends CategorieDoc { }

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserModel } from "../../models/UserModel/UserModel";
-import { IUser } from "../../models/UserModel/IUser";
+import { UserModel } from "../models/UserModel/UserModel";
+import { IUser } from "../models/UserModel/IUser";
 
 // YOU WON'T BELIEVE ME, THIS RETURNS ALL USERS :0
 export const getAllUsers = async (req: Request, res: Response) => {

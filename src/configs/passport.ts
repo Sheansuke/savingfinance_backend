@@ -1,6 +1,6 @@
 import passport from "passport";
 import { OAuth2Strategy } from "passport-google-oauth";
-import { UserModel } from "../models/UserModel/UserModel";
+import { UserModel } from "../api/v1/models/UserModel/UserModel";
 import { IMongoDBUser } from "./IMongoDBUser";
 const GoogleStrategy = OAuth2Strategy;
 

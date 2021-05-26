@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import passport from "passport";
 
 // AUTH INITIALIZED
 export const googleAuth = () => { }
@@ -14,5 +13,5 @@ export const googleCallback = (req: Request, res: Response) => {
 // LOGOUT XD
 export const googleLogout = (req: Request, res: Response) => {
   req.logout();
-  res.redirect(`${process.env.CORS_ORIGIN}`);
+  res.redirect(`/dashboard`);
 }

@@ -1,6 +1,6 @@
 import express from "express";
 import passport from "passport";
-import { googleCallback, googleLogout } from "./googleController";
+import { googleCallback, googleLogout } from "../controllers/GoogleController";
 
 const router = express.Router();
 

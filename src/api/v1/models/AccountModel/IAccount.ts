@@ -1,6 +1,6 @@
 import { Document } from "mongoose";
 import { ObjectID } from "mongodb";
-import { TypeCurrencyCodes } from "../../utils/currencyCodes";
+import { TypeCurrencyCodes } from "../../interfaces/types/currencyCodes";
 
 export interface IAccount {
   _id: ObjectID;

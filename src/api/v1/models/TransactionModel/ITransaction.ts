@@ -2,7 +2,7 @@ import { Document } from "mongoose";
 import { ObjectID } from "mongodb";
 import { IAccount } from "../AccountModel/IAccount";
 import { ICategorie } from "../CategorieModel/ICategorie";
-import { TypeTransaction } from "../../utils/TypeTransaction";
+import { TypeTransaction } from "../../interfaces/types/TypeTransaction";
 
 export interface ITransaction {
   _id: ObjectID;
@@ -16,4 +16,4 @@ export interface ITransaction {
 
 type TransactionDoc = ITransaction & Document;
 
-export interface ITransactionSchema extends TransactionDoc {}
+export interface ITransactionSchema extends TransactionDoc { }
